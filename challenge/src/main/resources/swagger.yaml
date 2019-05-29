@@ -1,0 +1,83 @@
+swagger: '2.0'
+info:
+  title: previred
+  version: 1.0.0
+paths:
+  /previred/dateValidator:
+    get:
+      parameters:
+        -
+          name: body
+          in: body
+          description: "{\r\n    \"id\": 6,\r\n    \"fechaCreacion\": \"1968-08-01\",\r\n    \"fechaFin\": \"1971-06-01\",\r\n    \"fechas\": [\r\n      \"1969-03-01\",\r\n      \"1969-05-01\",\r\n      \"1969-09-01\",\r\n      \"1971-05-01\"]\r\n}"
+          required: true
+          schema:
+            $ref: '#/definitions/request'
+      responses:
+        '200':
+          description: "{\r\n    \"id\": 6,\r\n    \"fechaCreacion\": \"1968-08-01\",\r\n    \"fechaFin\": \"1971-06-01\",\r\n    \"fechasFaltantes\": [\r\n      \"1969-04-01\",\r\n      \"1969-06-01\",\r\n      \"1969-07-01\",\r\n      \"1969-08-01\",\r\n      \"1969-10-01\",\r\n      \"1969-11-01\",\r\n      \"1969-12-01\"]\r\n}"
+          schema:
+            $ref: '#/definitions/response'
+          examples: {}
+definitions:
+  request:
+    title: Root Type for request
+    description: "{\r\n    \"id\": 6,\r\n    \"fechaCreacion\": \"1968-08-01\",\r\n    \"fechaFin\": \"1971-06-01\",\r\n    \"fechas\": [\r\n      \"1969-03-01\",\r\n      \"1969-05-01\",\r\n      \"1969-09-01\",\r\n      \"1971-05-01\"]\r\n}"
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      fechaCreacion:
+        format: date
+        type: string
+      fechaFin:
+        format: date
+        type: string
+      fechas:
+        type: array
+        items: {}
+    example: |-
+      {
+          "id": 6,
+          "fechaCreacion": "1968-08-01",
+          "fechaFin": "1971-06-01",
+          "fechas": [
+              "1969-03-01",
+              "1969-05-01",
+              "1969-09-01",
+              "1971-05-01"
+          ]
+      }
+  response:
+    title: Root Type for response
+    description: "{\r\n    \"id\": 6,\r\n    \"fechaCreacion\": \"1969-03-01\",\r\n    \"fechaFin\": \"1970-01-01\",\r\n    \"fechasFaltantes\": [\r\n      \"1969-04-01\",\r\n      \"1969-06-01\",\r\n      \"1969-07-01\",\r\n      \"1969-08-01\",\r\n      \"1969-10-01\",\r\n      \"1969-11-01\",\r\n      \"1969-12-01\"]\r\n\r\n}"
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      fechaCreacion:
+        format: date
+        type: string
+      fechaFin:
+        format: date
+        type: string
+      fechasFaltantes:
+        type: array
+        items: {}
+    example: |-
+      {
+          "id": 6,
+          "fechaCreacion": "1968-08-01",
+          "fechaFin": "1971-06-01",
+          "fechasFaltantes": [
+              "1969-04-01",
+              "1969-06-01",
+              "1969-07-01",
+              "1969-08-01",
+              "1969-10-01",
+              "1969-11-01",
+              "1969-12-01"
+          ]
+      }
