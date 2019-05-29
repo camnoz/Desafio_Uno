@@ -122,4 +122,19 @@ REQUISITOS:
 -	Junto con la solución debes entregar un archivo con la entrada y con la salida en formato JSON.
 
 NOTA:
-Todos los poll reuqests serán rechazados, esto no quiere decir que ha sido rechazada la solución, sino que es una forma de que otros postulantes no copien tu código.
+Todos los pull requests serán rechazados, esto no quiere decir que ha sido rechazada la solución, sino que es una forma de que otros postulantes no copien tu código.
+
+##Solución Desafío - Nivel 2
+Pasos para ejecutar la aplicación:
+
+Compilar el proyecto con "mvn clean compile", desde la raíz del proyecto
+Ejecutar el .jar generado con "java -jar", desde la carpeta "target"
+Abrir un API testing, ya sea Postman, SoapUi u otro.
+Agregar Url: localhost:8080/previred/dateValidator
+Agregar Header: Content-Type : application/json
+Agregar Body : información del archivo input ubicado en la carpeta raiz del proyecto
+
+
+Pasos para acceder a Swagger:
+Una vez ejecutado el .jar
+Abrir un browser (Firefox, Opera, etc) e ingresar a http://localhost:8080/swagger-ui.html
